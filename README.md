@@ -13,16 +13,21 @@ API, который позволяет загружать файлы на сер
 ## Как запустить
 * Запустить контейнеры
 ```
-docker compose up -d
+sudo docker compose up -d
 ```
 * Выполнить миграции
 
 ```
-docker compose exec backend python manage.py migrate
+sudo docker compose exec backend python manage.py migrate
 ```
 * Запутить воркер celery
 ```
-docker compose exec backend celery -A backend worker -l info
+sudo docker compose exec backend celery -A backend worker -l info
+```
+
+* Тесты  
+```
+sudo docker compose exec backend python manage.py test
 ```
 проверить по адресу http://127.0.0.1:8000/api/
 
